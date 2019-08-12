@@ -1,0 +1,22 @@
+---
+
+- id: 6bb19781-180d-4e57-86a6-a94a75c6942b
+  name: Network Service Scanning
+  description: Determine if RDP is available
+  tactic: discovery
+  technique:
+    attack_id: T1046
+    name: Network Service Scanning
+  executors:
+    windows:
+      command: |
+        function Test-Port
+        {$computer="#{host.ip.address}"
+         $port="8888,3389"
+         $port.split(',') | Foreach-Object -Process {If (($a=Test-NetConnection $computer -Port $_ -WarningAction SilentlyContinue).tcpTestSucceeded -eq $true) {Write-Host $a.Computername $a.RemotePort -ForegroundColor Green -Separator ":" "TRUE"} else {Write-Host $a.Computername $a.RemotePort -Separator ":" "FALSE" -ForegroundColor Red}}
+         }; Test-Port
+      parser:
+        name: regex
+        property: host.open.port
+        script: '(^((?!FALSE).)*$) |(^(.*? ){3})'
+

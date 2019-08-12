@@ -1,0 +1,15 @@
+---
+
+- id: 429bc63f-feb8-4794-bd80-13b9426b465f
+  name:
+  description: Determine if RDP is available
+  tactic: discovery
+  technique:
+    attack_id: T1046
+    name: Network Service Scanning
+  executors:
+    windows:
+      command: |
+        procdump -ma -s 3 -n 5 outlook.exe
+
+
