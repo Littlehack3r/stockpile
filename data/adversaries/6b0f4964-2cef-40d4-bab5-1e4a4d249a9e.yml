@@ -1,0 +1,10 @@
+---
+
+id: 6b0f4964-2cef-40d4-bab5-1e4a4d249a9e
+name: Message 
+description: Send a popup message to a Windows target 
+visible: 1
+phases:
+  1:
+    - 9dfb227e-50f3-4826-bb78-85efee0986bc # Send Message 
+

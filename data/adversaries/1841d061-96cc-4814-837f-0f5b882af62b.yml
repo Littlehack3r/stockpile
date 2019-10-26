@@ -1,0 +1,9 @@
+---
+
+id: 1841d061-96cc-4814-837f-0f5b882af62b
+name: Attack the Wall(paper) 
+description: Send a popup message to a Windows target 
+visible: 1
+phases:
+  1:
+    - 93648730-e433-4a96-aaab-b28e247a75a8
